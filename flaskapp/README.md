@@ -10,3 +10,6 @@ and forwards that data to a front-end application through web sockets
 	cp oscbridge/config/config.yml.sample oscbridge/config/config.yml
 	python wsgi.py
 	
+## References
+
+* https://github.com/memo/TornadoOSCWSStream

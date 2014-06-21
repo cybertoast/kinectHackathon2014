@@ -1,3 +1,5 @@
 Flask
 Flask-Sockets
 PyYAML
+# pyosc
+-e git+https://github.com/ptone/pyosc.git#egg=pyosc-dev
