@@ -1,7 +1,7 @@
 from OSC import OSCClient, OSCMessage
 
 client = OSCClient()
-client.connect( ("localhost", 5005) )
+client.connect( ("localhost", 8000) )
 
 client.send( OSCMessage("/user/1", [1.0, 2.0, 3.0 ] ) )
 client.send( OSCMessage("/user/2", [2.0, 3.0, 4.0 ] ) )
