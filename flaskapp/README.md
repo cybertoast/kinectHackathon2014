@@ -13,3 +13,7 @@ and forwards that data to a front-end application through web sockets
 ## References
 
 * https://github.com/memo/TornadoOSCWSStream
+* http://www.brettdangerfield.com/post/realtime_data_tag_cloud/
+* http://stackoverflow.com/questions/23232399/server-sent-events-with-flask-and-tornado
+* https://www.npmjs.org/package/osc
+

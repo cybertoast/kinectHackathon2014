@@ -47,6 +47,13 @@ def configure_sockets(app):
     from flask_sockets import Sockets
     app.sockets = Sockets(app)
 
+def sensor_stream():
+    count = 0
+    while True:
+        gevent.sleep(2)
+        yield 'data: %s\n\n' % count
+        count += 1
+        
 def configure_routes(app):
     @app.sockets.route('/echo')
     def echo_socket(ws):
@@ -65,6 +72,9 @@ def configure_routes(app):
         if not app.queue.empty():
 #             OSCWebSocketHandler.send_updates(json.dumps({"msg": queue.get() }))
             print app.queue.get()
+            
+#         return Response(sensor_stream(),
+#                         mimetype='text/event-stream')
 
 def configure_osc_receiver():
     """Set up the OSC receiver so that data can be sent to the websocket 
