@@ -1,4 +1,4 @@
-from flask import request, Flask
+from flask import request, Flask, render_template
 import os
 import yaml
 
@@ -51,3 +51,14 @@ def configure_routes(app):
     @app.route('/')
     def hello():
         return 'Hello World!'
+
+    @app.route('/js_test')
+    def js_app():
+        return render_template('test.html')
+
+
+
+
+
+
+
