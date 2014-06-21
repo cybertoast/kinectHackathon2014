@@ -1,3 +1,7 @@
+from tornado.wsgi import WSGIContainer
+from tornado.httpserver import HTTPServer
+from tornado.ioloop import IOLoop
+
 from werkzeug.serving import run_simple
 # from werkzeug.wsgi import DispatcherMiddleware
 
@@ -16,10 +20,15 @@ if __name__ == '__main__':
         # Config is invalid, so use-debugger will be default
         pass
 
-    run_simple('0.0.0.0',
-               5000,
-               app,
-               use_reloader=use_debugger,
-               use_debugger=use_debugger,
-               use_evalex=True)
+    # Using tornado (non-blocking server)
+    http_server = HTTPServer(WSGIContainer(app))
+    http_server.listen(5000)
+    IOLoop.instance().start()
+    
+#     run_simple('0.0.0.0',
+#                5000,
+#                app,
+#                use_reloader=use_debugger,
+#                use_debugger=use_debugger,
+#                use_evalex=True)
 
