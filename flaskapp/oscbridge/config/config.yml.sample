@@ -1,0 +1,9 @@
+# Flask-specific configurations. This is where application configurations
+# should also be put, since things like flask-security and flask-wtf will
+# read from here.
+FLASK:
+    # General configurations
+    DEBUG: True
+    # If you want to use Aptana/Eclipse debugger vs Flask's internal debugger
+    DEBUG_WITH_APTANA: True
+
