@@ -19,6 +19,8 @@ def create_app(app_name=None):
     configure_app(app)
     configure_sockets(app)
     configure_routes(app)
+    configure_queue(app)
+    configure_osc_receiver()
     
     return app
 
@@ -35,6 +37,11 @@ def configure_app(app, configfile=None):
     # The Flask-common configurations are within the FLASK: definition
     app.config.update(app.settings.get('FLASK'))
 
+
+def configure_queue(app):
+    import Queue
+    with app.app_context():
+        app.queue = Queue.Queue()
 
 def configure_sockets(app):
     from flask_sockets import Sockets
@@ -55,9 +62,11 @@ def configure_routes(app):
     def kinect_stream():
         """Pass data from OSC receiver back through the socket
         """
-        pass
+        if not app.queue.empty():
+#             OSCWebSocketHandler.send_updates(json.dumps({"msg": queue.get() }))
+            print app.queue.get()
 
-def configure_osc_receiver(app):
+def configure_osc_receiver():
     """Set up the OSC receiver so that data can be sent to the websocket 
     """
     from .modules.osc import receiver
