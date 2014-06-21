@@ -41,7 +41,6 @@ def configure_sockets(app):
     app.sockets = Sockets(app)
 
 def configure_routes(app):
-
     @app.sockets.route('/echo')
     def echo_socket(ws):
         while True:
@@ -51,3 +50,16 @@ def configure_routes(app):
     @app.route('/')
     def hello():
         return 'Hello World!'
+    
+    @app.sockets.route('/kinect')
+    def kinect_stream():
+        """Pass data from OSC receiver back through the socket
+        """
+        pass
+
+def configure_osc_receiver(app):
+    """Set up the OSC receiver so that data can be sent to the websocket 
+    """
+    from .modules.osc import receiver
+    receiver.listen()
+    
