@@ -8,6 +8,8 @@ client.connect( ("localhost", 8000) )
 for i in range(1, 1000):
     client.send( OSCMessage("/skeletons/%s/joints/fingertips/position" % (i%3), 
                             [1.0, 2.0, 3.0 ] ) )
+    client.send( OSCMessage("/skeletons/%s/handstate/open" % (i%3) ))
+    client.send( OSCMessage("/skeletons/%s/tracked/yes" % (i%3) ))
     sleep(.5)
 
 
