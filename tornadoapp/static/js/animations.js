@@ -80,6 +80,31 @@ window.animations = (function() {
       black: { r: 0, g: 0, b: 0 },
       isDark: false
 
+    },
+    {
+
+  // Paul's Walk Thru Rock
+      background: { r: 45, g: 48, b: 40 },
+      middleground: { r: 209, g: 209, b: 215 },
+      foreground: { r: 128, g: 128, b: 173 },
+      highlight: { r: 142, g: 190, b: 210 },
+      accent: { r: 215, g: 35, b: 119 },
+      white: { r: 255, g: 255, b: 255 },
+      black: { r: 0, g: 0, b: 0 },
+      isDark: true
+
+    },
+    {
+      // Paul's Evil Brain from Outer Space
+      background: { r: 51, g: 72, b: 139 },
+      middleground: { r: 135, g: 94, b: 166 },
+      foreground: { r: 227, g: 162, b: 131 },
+      highlight: { r: 211, g: 217, b: 234 },
+      accent: { r: 250, g: 198, b: 33 },
+      white: { r: 255, g: 255, b: 255 },
+      black: { r: 50, g: 50, b: 50 },
+      isDark: true
+
     }
   ];
 
