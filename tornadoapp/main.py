@@ -127,10 +127,6 @@ class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
 
             resp = {"skelid": skelid,
                     "trackstate": trackstate}
-        else:
-            # just send it to test
-            resp = {"address":address}
-            
 
         return resp
 

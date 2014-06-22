@@ -7,17 +7,13 @@ setupWebsocket = function() {
         ws = new MozWebSocket("ws://localhost:5000/websocket");
     }
 
-
-	var rightHandY = 
-	var headY = 
+	var triggerable = true;
+	
+	var handtipleft = 0;
+	var headY = 1000000;
 
     ws.onmessage = function( event ) {
         var data = JSON.parse(event.data);
-		
-		if (data.address) {
-		console.log("Address: " + data.address);
-		}
-		
         // var addr = data.addr;
         // var value = data.value;
         var skelid = data.skelid;
@@ -27,17 +23,29 @@ setupWebsocket = function() {
         
 		
 		if (jointname == "head") {
-			headY = data.coords.y;
+			headY = data.coords[1];
 		}
 		
-		if (jointname == "handright") {
-			rightHandY = data.coords.y;
+		
+		if (jointname == "handtipleft") {
+			handtipleft = data.coords[1];	
 		}
 		
-		if (rightHandY > headY) {
+		
+		if ((jointname == "head") || (jointname == "handtipleft")) {
+			console.log("handtipleft\t" + handtipleft + "\theadY\t" + headY);
+		}
+		
+		
+		
+		if ((triggerable) && (handtipleft > headY)) {
+			triggerable = false;
 			// Trigger something
 			console.log("triggering");
 			trigger('0,2');
+			setTimeout(function (){
+				triggerable = true;
+			}, 1000);
 		}
 
         //console.log(skelid, jointname, coords, data);
