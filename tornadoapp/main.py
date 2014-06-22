@@ -13,6 +13,7 @@ import tornado.web
 import tornado.websocket
 import os.path
 
+import re
 import json
 
 from tornado.options import define, options
@@ -56,7 +57,55 @@ class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
         global queue
         while not queue.empty():
             a = queue.get()
-            OSCWebSocketHandler.send_updates(json.dumps({"addr":a[0], "value":a[1]}))
+            # parsed_data = {"addr": a[0], "value": a[1]}
+            # OSCWebSocketHandler.send_updates(parsed_data) 
+            # continue
+
+
+            parsed_data = self.parse_skeleton_data(a) 
+            # from pdb import set_trace; set_trace()
+            if not parsed_data:
+                continue
+            OSCWebSocketHandler.send_updates(parsed_data)
+
+    @classmethod
+    def parse_skeleton_data(self, a):
+        resp = None
+        address, value = a
+        skelid = 0
+        jointname = "unknown"
+        jointinfo = "unknown"
+
+        # from pdb import set_trace; set_trace()
+        if "joints" in address:
+            match = re.search(r".*skeletons\/(?P<skelid>\d+)\/joints/(?P<jointname>.*?)\/(?P<jointinfo>.*)", address)
+            if not match:
+                return None
+
+            jointname = match.group('jointname')
+            jointinfo = match.group('jointinfo')
+
+            if not jointinfo.startswith('position'):
+                # For now we only want position, not orientation or anything else
+                return None
+
+            print "Ok, sending joint info for %s" % value
+
+            resp = {"skelid": skelid,
+                    "jointname": jointname,
+                    "coords": value}
+
+        elif "handstate" in address:
+            # Handstate is different:
+            match = re.search(r".*skeletons\/(?P<skelid>\d+)\/handstate/(?P<handstate>.*)", address)
+            if not match:
+                return None
+
+            resp = {"skelid": skelid,
+                    "handstate": handstate,
+                    "coords": value}
+
+        return resp
 
     @classmethod
     def send_updates(cls, msg ):

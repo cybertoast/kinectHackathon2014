@@ -15,11 +15,11 @@ run = True
 def listen():
     
     # Add message handlers to server
-    server.addMsgHandler( "/user/1", user_callback )
-    server.addMsgHandler( "/user/2", user_callback )
-    server.addMsgHandler( "/user/3", user_callback )
-    server.addMsgHandler( "/user/4", user_callback )
-    server.addMsgHandler( "/quit", quit_callback )
+#     server.addMsgHandler( "/user/1", user_callback )
+#     server.addMsgHandler( "/user/2", user_callback )
+#     server.addMsgHandler( "/user/3", user_callback )
+#     server.addMsgHandler( "/user/4", user_callback )
+#     server.addMsgHandler( "/quit", quit_callback )
     
     server.addMsgHandler( "/test/1", osc_handler )
     
@@ -46,7 +46,9 @@ def user_callback(path, tags, args, source):
 
 def osc_handler( addr, tags, stuff, source):
     print addr, stuff
-    app.queue.put( [addr, stuff] )
+    from pdb import set_trace; set_trace()
+    global queue
+    queue.put( [addr, stuff] )
         
 def quit_callback(path, tags, args, source):
     # don't do this at home (or it'll quit blender)
