@@ -1,4 +1,4 @@
-$(function() {
+//$(function() {
 
   var container = $('#content'), $window, ui, buttons, width, height,
     landscape, $hint = $('#hint'), $credits = $('#credits'),
@@ -74,30 +74,30 @@ $(function() {
 
     var firstRun = true;
 
-    $('#merchandise-button').click(function(e) {
-      e.preventDefault();
-      if (firstRun) {
-        $merchandise.css({
-          opacity: 1.0,
-          display: 'none',
-          zIndex: 0
-        });
-        firstRun = false;
-      }
-      $hint.fadeOut();
-      $embed.fadeOut();
-      $merchandise.fadeIn(function() {
-        embedding = true;
-        merchandising = true;
-      });
-    });
-
-    $('#close-merchandise').click(function(e) {
-      e.preventDefault();
-      embedding = false;
-      merchandising = false;
-      $merchandise.fadeOut();
-    });
+    // $('#merchandise-button').click(function(e) {
+  //     e.preventDefault();
+  //     if (firstRun) {
+  //       $merchandise.css({
+  //         opacity: 1.0,
+  //         display: 'none',
+  //         zIndex: 0
+  //       });
+  //       firstRun = false;
+  //     }
+  //     $hint.fadeOut();
+  //     $embed.fadeOut();
+  //     $merchandise.fadeIn(function() {
+  //       embedding = true;
+  //       merchandising = true;
+  //     });
+  //   });
+  //
+  //   $('#close-merchandise').click(function(e) {
+  //     e.preventDefault();
+  //     embedding = false;
+  //     merchandising = false;
+  //     $merchandise.fadeOut();
+  //   });
 
     $window = $(window)
       .bind('resize', function(e) {
@@ -266,7 +266,7 @@ $(function() {
     $window.trigger('resize');
 
     _.delay(function() {
-      $('#lobby').fadeOut(triggerLogo);
+      //$('#lobby').fadeOut(triggerLogo);
       if (url.boolean('kiosk') /*|| (window.localStorage && window.localStorage.visited)*/) {
         triggered();
         return;
@@ -478,22 +478,22 @@ $(function() {
 
   }
 
-  function triggerLogo() {
-
-    if (window.localStorage && window.localStorage.visited) {
-      return;
-    }
-
-    trigger('0,9');
-    trigger('2,6');
-    trigger('1,7');
-    trigger('2,1');
-
-    if (window.localStorage) {
-      window.localStorage.visited = true;
-    }
-
-  }
+  // function triggerLogo() {
+  //
+  //   if (window.localStorage && window.localStorage.visited) {
+  //     return;
+  //   }
+  //
+  //   trigger('0,9');
+  //   trigger('2,6');
+  //   trigger('1,7');
+  //   trigger('2,1');
+  //
+  //   if (window.localStorage) {
+  //     window.localStorage.visited = true;
+  //   }
+  //
+  // }
 
   function trigger(hash, silent) {
 
@@ -550,14 +550,14 @@ $(function() {
   }, 20000);  // Twenty Second timeout
 
   function triggered() {
-    if (url.boolean('kiosk')) {
-      startDemonstration();
-      reloadOnIdle();
-      interacting = true;
-      return;
-    }
-    $hint.fadeOut();
-    showHint();
+    // if (url.boolean('kiosk')) {
+    //   startDemonstration();
+    //   reloadOnIdle();
+    //   interacting = true;
+    //   return;
+    // }
+    // $hint.fadeOut();
+    // showHint();
   }
 
   var hideCredits = _.debounce(function() {
@@ -573,8 +573,8 @@ $(function() {
     hideCredits();
   }
 
-});
+  //});
 
-if (window.console && window.console.log) {
-  console.log('Check out the code at http://github.com/jonobr1/Neuronal-Synchrony');
-}
+// if (window.console && window.console.log) {
+//   console.log('Check out the code at http://github.com/jonobr1/Neuronal-Synchrony');
+// }
