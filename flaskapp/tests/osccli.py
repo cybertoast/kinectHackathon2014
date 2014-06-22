@@ -6,7 +6,8 @@ client.connect( ("localhost", 8000) )
 
 # client.send( OSCMessage("/skeletons/0/joints/fingertips/position", [1.0, 2.0, 3.0 ] ) )
 for i in range(1, 1000):
-    client.send( OSCMessage("/skeletons/0/joints/fingertips/position", [1.0, 2.0, 3.0 ] ) )
+    client.send( OSCMessage("/skeletons/%s/joints/fingertips/position" % (i%3), 
+                            [1.0, 2.0, 3.0 ] ) )
     sleep(.5)
 
 

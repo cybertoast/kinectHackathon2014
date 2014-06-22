@@ -82,6 +82,7 @@ class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
             if not match:
                 return None
 
+            skelid = match.group('skelid')
             jointname = match.group('jointname')
             jointinfo = match.group('jointinfo')
 
@@ -89,7 +90,7 @@ class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
                 # For now we only want position, not orientation or anything else
                 return None
 
-            print "Ok, sending joint info for %s" % value
+            # print "Ok, sending skel %s: %s" % (skelid, value)
 
             resp = {"skelid": skelid,
                     "jointname": jointname,
@@ -98,8 +99,12 @@ class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
         elif "handstate" in address:
             # Handstate is different:
             match = re.search(r".*skeletons\/(?P<skelid>\d+)\/handstate/(?P<handstate>.*)", address)
+
             if not match:
                 return None
+
+            skelid = match.group('skelid')
+            handstate = match.group('handstate')
 
             resp = {"skelid": skelid,
                     "handstate": handstate,
