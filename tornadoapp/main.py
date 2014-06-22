@@ -71,13 +71,14 @@ class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
     @classmethod
     def parse_skeleton_data(self, a):
         resp = None
-        address, value = a
         skelid = 0
         jointname = "unknown"
         jointinfo = "unknown"
 
         # from pdb import set_trace; set_trace()
         if "joints" in address:
+            address, value = a
+
             match = re.search(r".*skeletons\/(?P<skelid>\d+)\/joints/(?P<jointname>.*?)\/(?P<jointinfo>.*)", address)
             if not match:
                 return None
@@ -97,6 +98,8 @@ class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
                     "coords": value}
 
         elif "handstate" in address:
+            address = a
+
             # Handstate is different:
             match = re.search(r".*skeletons\/(?P<skelid>\d+)\/handstate/(?P<handstate>.*)", address)
 
@@ -107,8 +110,22 @@ class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
             handstate = match.group('handstate')
 
             resp = {"skelid": skelid,
-                    "handstate": handstate,
-                    "coords": value}
+                    "handstate": handstate}
+
+        elif "tracked" in address:
+            address = a
+
+            # Handstate is different:
+            match = re.search(r".*skeletons\/(?P<skelid>\d+)\/tracked/(?P<trackstate>.*)", address)
+
+            if not match:
+                return None
+
+            skelid = match.group('skelid')
+            trackstate = match.group('trackstate')
+
+            resp = {"skelid": skelid,
+                    "trackstate": trackstate}
 
         return resp
 
