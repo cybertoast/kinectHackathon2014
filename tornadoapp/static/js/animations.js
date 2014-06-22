@@ -33,70 +33,78 @@ window.animations = (function() {
   var PROPERTIES = ['background', 'middleground', 'foreground', 'highlight', 'accent', 'white', 'black'];
   var PALETTE = [
     {
-      // Grey
-      background: { r: 181, g: 181, b: 181 },
-      middleground: { r: 141, g: 164, b: 170 },
-      foreground: { r: 227, g: 79, b: 12 },
-      highlight: { r: 163, g: 141, b: 116 },
-      accent: { r: 255, g: 197, b: 215 },
+      // Paul's Green
+      background: { r: 187, g: 234, b: 187 },
+      middleground: { r: 187, g: 187, b: 187 },
+      foreground: { r: 129, g: 180, b: 234 },
+      highlight: { r: 131, g: 216, b: 208 },
+      accent: { r: 224, g: 119, b: 14 },
+      white: { r: 255, g: 255, b: 255 },
+      black: { r: 64, g: 12, b: 91 },
+      isDark: false
+
+    },
+    {
+        // Paul's Grey
+      background: { r: 79, g: 74, b: 74 },
+      middleground: { r: 209, g: 209, b: 215 },
+      foreground: { r: 135, g: 94, b: 166 },
+      highlight: { r: 229, g: 188, b: 237 },
+      accent: { r: 215, g: 35, b: 119 },
       white: { r: 255, g: 255, b: 255 },
       black: { r: 0, g: 0, b: 0 },
       isDark: false
+
     },
     {
-      // White
-      background: { r: 255, g: 230, b: 255 },
-      middleground: { r: 151, g: 41, b: 164 },
-      foreground: { r: 1, g: 120, b: 186 },
-      highlight: { r: 255, g: 255, b: 0 },
-      accent: { r: 255, g: 51, b: 148 },
-      white: { r: 255, g: 255, b: 255 },
-      black: { r: 255, g: 255, b: 255 },
-      isDark: false
-    },
-    {
-      // Orange
-      background: { r: 217, g: 82, b: 31 },
-      middleground: { r: 143, g: 74, b: 45 },
-      foreground: { r: 255, g: 108, b: 87 },
-      highlight: { r: 255, g: 126, b: 138 },
-      accent: { r: 227, g: 190, b: 141 },
+    
+      // Paul's Light Blue
+      background: { r: 199, g: 239, b: 236 },
+      middleground: { r: 74, g: 55, b: 50 },
+      foreground: { r: 234, g: 226, b: 127 },
+      highlight: { r: 229, g: 188, b: 237 },
+      accent: { r: 176, g: 17, b: 193 },
       white: { r: 255, g: 255, b: 255 },
       black: { r: 0, g: 0, b: 0 },
       isDark: false
+
     },
     {
-      // Blue
-      background: { r: 57, g: 109, b: 193 },
-      middleground: { r: 186, g: 60, b: 223 },
-      foreground: { r: 213, g: 255, b: 93 },
-      highlight: { r: 213, g: 160, b: 255 },
-      accent: { r: 36, g: 221, b: 165 },
-      white: { r: 215, g: 236, b: 255 },
+  // Paul's Desert Chrome
+      background: { r: 220, g: 122, b: 62 },
+      middleground: { r: 74, g: 55, b: 50 },
+      foreground: { r: 239, g: 158, b: 87 },
+      highlight: { r: 218, g: 232, b: 235 },
+      accent: { r: 84, g: 171, b: 223 },
+      white: { r: 255, g: 255, b: 255 },
+      black: { r: 0, g: 0, b: 0 },
+      isDark: false
+
+    },
+    {
+
+  // Paul's Walk Thru Rock
+      background: { r: 45, g: 48, b: 40 },
+      middleground: { r: 209, g: 209, b: 215 },
+      foreground: { r: 128, g: 128, b: 173 },
+      highlight: { r: 142, g: 190, b: 210 },
+      accent: { r: 215, g: 35, b: 119 },
+      white: { r: 255, g: 255, b: 255 },
       black: { r: 0, g: 0, b: 0 },
       isDark: true
+
     },
     {
-      // Cream
-      background: { r: 255, g: 244, b: 211 },
-      middleground: { r: 207, g: 145, b: 79 },
-      foreground: { r: 38, g: 83, b: 122 },
-      highlight: { r: 178, g: 87, b: 53 },
-      accent: { r: 235, g: 192, b: 92 },
-      white: { r: 226, g: 82, b: 87 },
-      black: { r: 0, g: 0, b: 0 },
-      isDark: false
-    },
-    {
-      // Purple
-      background: { r: 39, g: 6, b: 54 },
-      middleground: { r: 69, g: 26, b: 87 },
-      foreground: { r: 252, g: 25, b: 246 },
-      highlight: { r: 52, g: 255, b: 253 },
-      accent: { r: 133, g: 102, b: 193 },
-      white: { r: 253, g: 228, b: 252 },
-      black: { r: 255, g: 255, b: 255 },
+      // Paul's Evil Brain from Outer Space
+      background: { r: 51, g: 72, b: 139 },
+      middleground: { r: 135, g: 94, b: 166 },
+      foreground: { r: 227, g: 162, b: 131 },
+      highlight: { r: 211, g: 217, b: 234 },
+      accent: { r: 250, g: 198, b: 33 },
+      white: { r: 255, g: 255, b: 255 },
+      black: { r: 50, g: 50, b: 50 },
       isDark: true
+
     }
   ];
 
