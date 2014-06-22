@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 77.388 122.353" enable-background="new 0 0 77.388 122.353" xml:space="preserve">
+<symbol  id="Y" viewBox="-38.694 -61.177 77.388 122.353">
+	<g>
+		<g>
+			<path fill="none" stroke="#0000FF" stroke-width="4" stroke-linecap="square" stroke-miterlimit="10" d="M-36.084,58.567
+				l18.795-45.783C-13.55,5.508-8.928-1.265,0.824-1.265c9.77,0,14.661,6.331,18.113,14.049l17.182,45.783"/>
+		</g>
+	</g>
+	
+		<line fill="none" stroke="#0000FF" stroke-width="4" stroke-linecap="square" stroke-miterlimit="10" x1="0.84" y1="-59.177" x2="0.84" y2="-1.265"/>
+</symbol>
+<use xlink:href="#Y"  width="77.388" height="122.353" x="-38.694" y="-61.177" transform="matrix(1 0 0 -1 38.694 61.1762)" overflow="visible"/>
+</svg>
