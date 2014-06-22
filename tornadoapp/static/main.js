@@ -1,3 +1,6 @@
+// This runs the basic socket receive test logging endpoint...
+// Actual app uses kinectreceiver.js
+
 setupWebsocket = function() {
 	var ws;
     if ("WebSocket" in window) {
