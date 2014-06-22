@@ -265,20 +265,20 @@
 
     $window.trigger('resize');
 
-    _.delay(function() {
-      //$('#lobby').fadeOut(triggerLogo);
-      if (url.boolean('kiosk') /*|| (window.localStorage && window.localStorage.visited)*/) {
-        triggered();
-        return;
-      } else if (/merchandise/ig.test(url.hash)) {
-        $('#merchandise-button').trigger('click');
-        return;
-      }
-      $hint.fadeIn();
-      if (window.localStorage) {
-        window.localStorage.visited = true;
-      }
-    }, 1000);
+    // _.delay(function() {
+    //   //$('#lobby').fadeOut(triggerLogo);
+    //   if (url.boolean('kiosk') /*|| (window.localStorage && window.localStorage.visited)*/) {
+    //     triggered();
+    //     return;
+    //   } else if (/merchandise/ig.test(url.hash)) {
+    //     $('#merchandise-button').trigger('click');
+    //     return;
+    //   }
+    //   $hint.fadeIn();
+    //   if (window.localStorage) {
+    //     window.localStorage.visited = true;
+    //   }
+    // }, 1000);
 
   }
 
