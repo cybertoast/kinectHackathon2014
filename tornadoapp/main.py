@@ -25,6 +25,8 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", MainHandler),
+            (r"/test", JavascriptTest),
+            (r"/app", AppTest),
             (r"/websocket", OSCWebSocketHandler),
         ]
         settings = dict(
@@ -40,6 +42,14 @@ class Application(tornado.web.Application):
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
+
+class JavascriptTest(tornado.web.RequestHandler):
+    def get(self):
+        self.render("test.html")
+
+class AppTest(tornado.web.RequestHandler):
+    def get(self):
+        self.render("app.html")
 
 class OSCWebSocketHandler(tornado.websocket.WebSocketHandler):
     waiters = set()

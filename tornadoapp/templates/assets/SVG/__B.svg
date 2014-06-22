@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 70.546 128.28" enable-background="new 0 0 70.546 128.28" xml:space="preserve">
+<symbol  id="B" viewBox="-34.761 -64.156 70.546 128.28">
+	<g>
+		
+			<line fill="none" stroke="#0000FF" stroke-width="4" stroke-linecap="square" stroke-miterlimit="10" x1="-32.73" y1="-62" x2="-32.73" y2="62.124"/>
+	</g>
+	<g>
+		<path fill="none" stroke="#0000FF" stroke-width="4" stroke-linecap="square" stroke-miterlimit="10" d="M25.128,33.195
+			c0,15.977-12.952,28.929-28.929,28.929S-32.73,49.172-32.73,33.195S-19.778,4.267-3.801,4.267S25.128,17.219,25.128,33.195z"/>
+	</g>
+	<g>
+		<path fill="none" stroke="#0000FF" stroke-width="4.0626" stroke-linecap="square" stroke-miterlimit="10" d="M33.754-28.883
+			c0,18.359-14.883,33.242-33.242,33.242S-32.73-10.524-32.73-28.883s14.883-33.242,33.242-33.242S33.754-47.242,33.754-28.883z"/>
+	</g>
+</symbol>
+<use xlink:href="#B"  width="70.546" height="128.28" x="-34.761" y="-64.156" transform="matrix(1 0 0 -1 34.7609 64.124)" overflow="visible"/>
+</svg>
